@@ -148,7 +148,7 @@ import * as classNames from 'classnames';
 //     }
 // }
 
-class CCCheckbox extends React.Component<ThisPropsType, ThisStateType> {
+export default class CCCheckbox extends React.Component<ThisPropsType, ThisStateType> {
     constructor(props: ThisPropsType) {
         super(props as any);
         this.state = {
@@ -207,19 +207,7 @@ class CCCheckbox extends React.Component<ThisPropsType, ThisStateType> {
     //
 }
 
-function mapStateToProps(storeState: any, ownProps: OwnProps): StateToPropsType {
-    return {
-    };
-}
-
-function mapDispatchToProps(dispatch: Dispatch<IcccheckboxAction>): DispatchToPropsType {
-    return {
-        actions: bindActionCreators(cccheckboxActions, dispatch)
-    };
-}
-
 type ThisStateType = {
-    cccheckboxArray: cccheckboxModel[]
 };
 
 type StateToPropsType = {
@@ -252,4 +240,24 @@ type OwnProps = {
 
 type ThisPropsType = StateToPropsType & DispatchToPropsType & OwnProps;
 
-export default withRouter(connect<StateToPropsType, DispatchToPropsType, OwnProps>(mapStateToProps, mapDispatchToProps)(CCCheckbox));
+
+
+
+
+
+import * as React from 'react';
+import { dfsdfModel } from 'types/modelTypes/dfsdfModel';
+
+type sdfProps = {
+    dfsdf: dfsdfModel
+};
+
+const sdf = (props: sdfProps) => {
+    return (
+        <div>
+            sdf working.
+    </div>
+    );
+};
+
+export default sdf;
