@@ -152,29 +152,30 @@ export default class CCCheckbox extends React.Component<ThisPropsType, ThisState
     constructor(props: ThisPropsType) {
         super(props as any);
         this.state = {
+            isChecked: false
         };
     }
 
     render() {
         return (
-            <span className={classString} style={style}>
+            <span className={this.props.className} style={this.props.style}>
                 <input
                     name={name}
-                    id={id}
-                    type={type}
-                    readOnly={readOnly}
-                    disabled={disabled}
-                    tabIndex={tabIndex}
-                    className={`${prefixCls}-input`}
-                    checked={!!checked}
-                    onClick={onClick}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onChange={this.handleChange}
-                    autoFocus={autoFocus}
-                    ref={this.saveInput}
-                    value={value}
-                    {...globalProps}
+                    id={this.props.id}
+                    type={this.props.type}
+                    readOnly={this.props.readOnly}
+                    disabled={this.props.disabled}
+                    tabIndex={this.props.tabIndex}
+                    className={this.props.`${this.props.prefixCls}-input`}
+                    checked={this.props.!!checked}
+                onClick={this.props.onClick}
+                onFocus={this.props.onFocus}
+                onBlur={this.props.onBlur}
+                onChange={this.handleChange}
+                autoFocus={autoFocus}
+                ref={this.saveInput}
+                value={value}
+                {...globalProps}
                 />
                 <span className={`${prefixCls}-inner`} />
             </span>
@@ -207,10 +208,11 @@ export default class CCCheckbox extends React.Component<ThisPropsType, ThisState
     //
 }
 
-type ThisStateType = {
+export type ThisStateType = {
+    isChecked: boolean
 };
 
-type StateToPropsType = {
+export type ThisPropsType = {
     prefixCls: string,
     className: string,
     style: object,
@@ -224,40 +226,8 @@ type StateToPropsType = {
     onBlur: () => void,
     onChange: () => void,
     onClick: () => void,
-    tabIndex: string,
+    tabIndex: number,
     readOnly: boolean,
     autoFocus: boolean,
     value: any,
 };
-
-type DispatchToPropsType = {
-};
-
-type RCProps = RouteComponentProps<{ id: number }>;
-
-type OwnProps = {
-} & RCProps;
-
-type ThisPropsType = StateToPropsType & DispatchToPropsType & OwnProps;
-
-
-
-
-
-
-import * as React from 'react';
-import { dfsdfModel } from 'types/modelTypes/dfsdfModel';
-
-type sdfProps = {
-    dfsdf: dfsdfModel
-};
-
-const sdf = (props: sdfProps) => {
-    return (
-        <div>
-            sdf working.
-    </div>
-    );
-};
-
-export default sdf;
